@@ -117,8 +117,6 @@ void DGUS_MonitorAndSendUpdates(void)
     u16 var_length = DGUS_Read_VP(0x0F01);  // Variable length
     u16 last_addr = 0;
 
-    DGUS_Write_VP(0x5000, change_flag + 10);
-
     // Only proceed if change_flag high-byte == 0x5A
     if (((u8)(change_flag >> 8)) == 0x5A)
     {

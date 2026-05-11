@@ -28,7 +28,8 @@ INCLUDES = \
 	-Ilib/uart \
 	-Ilib/sys \
 	-Ilib/crc16 \
-	-Ilib/timer
+	-Ilib/timer \
+	-Ilib/encoder
 
 # Common flags for SDCC
 CFLAGS  = -mmcs51 --model-large --xram-loc 0x8000 --xram-size 0x8000 $(INCLUDES)
@@ -42,7 +43,8 @@ SRCS = \
 	lib/uart/uart.c \
 	lib/sys/sys.c \
 	lib/crc16/crc16.c \
-	lib/timer/timer.c
+	lib/timer/timer.c \
+	lib/encoder/encoder.c
 
 ASMS = startup/startup_T5L.s
 RELS = \
@@ -51,7 +53,8 @@ RELS = \
 	$(OBJDIR)/uart.rel \
 	$(OBJDIR)/sys.rel \
 	$(OBJDIR)/crc16.rel \
-	$(OBJDIR)/timer.rel
+	$(OBJDIR)/timer.rel \
+	$(OBJDIR)/encoder.rel
 
 
 # Link-time relative object list from inside build/dist
@@ -86,6 +89,10 @@ $(OBJDIR)/crc16.rel: lib/crc16/crc16.c
 	$(SDCC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)/timer.rel: lib/timer/timer.c
+	@mkdir -p $(OBJDIR)
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR)/encoder.rel: lib/encoder/encoder.c
 	@mkdir -p $(OBJDIR)
 	$(SDCC) $(CFLAGS) -c $< -o $@
 

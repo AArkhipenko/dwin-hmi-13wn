@@ -2,12 +2,16 @@
 #define __ENCODER_H__
 
 #include "t5l1.h"
-#include "sys.h"
-#include "uart.h"
-#include "addresses.h"
 
-void DGUS_ProcessAllEncoder(void);
-u16 Read_Encoder(void);
-u8 Read_Pin(u8 port,u8 pin);
+#define ENCODER_NO_EVENT 0
+#define ENCODER_RIGHT 1
+#define ENCODER_LEFT 2
+#define ENCODER_BUTTON 3
+
+/**
+ * @brief Чтение значения энкодера
+ * @return 0 - нет события, 1 - вправо, 2 - влево, 3 - кнопка
+ */
+u8 Encoder_Read(void);
 
 #endif

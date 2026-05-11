@@ -8,9 +8,7 @@
         "config.h": "c",
         "crc16.h": "c",
         "includes.h": "c",
-        "vp_flags.h": "c",
-        "uart_flags.h": "c",
-        "app_defs.h": "c"
+        "encoder.h": "c",
     },
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/**",
@@ -19,9 +17,8 @@
         "${workspaceFolder}/lib/rtc",
         "${workspaceFolder}/lib/sys",
         "${workspaceFolder}/lib/timer",
+        "${workspaceFolder}/lib/encoder",
         "${workspaceFolder}/src",
-        "${workspaceFolder}/src/app",
-        "${workspaceFolder}/src/app/app_defs",
         "C:\\Program Files\\SDCC\\include"
     ],
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",

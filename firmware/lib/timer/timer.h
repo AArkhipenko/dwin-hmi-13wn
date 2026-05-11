@@ -9,14 +9,24 @@
 #include "config.h"
 #include "uart.h"
 
-extern volatile u32 t0_count;
-extern volatile u32 t1_count;
 extern volatile u16 sys_tick_ms;
-extern volatile u16 sys_tick_rtc;
 extern volatile u16 monitor_ms;
 
-void delay_ms(u16 ms);
+/**
+ * @brief Инициализация второго таймера
+ */
 void Timer2_Init(void);
+
+/**
+ * @brief Аппаратное прерывание таймера
+ */
 void Timer2_ISR(void) __interrupt(5);
+
+/**
+ * @brief Задержка в мс
+ * 
+ * @param ms - количество мс
+ */
+void delay_ms(u16 ms);
 
 #endif
