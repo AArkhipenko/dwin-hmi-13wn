@@ -9,6 +9,7 @@
         "crc16.h": "c",
         "includes.h": "c",
         "encoder.h": "c",
+        "app.h": "c",
     },
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/**",
@@ -19,6 +20,7 @@
         "${workspaceFolder}/lib/timer",
         "${workspaceFolder}/lib/encoder",
         "${workspaceFolder}/src",
+        "${workspaceFolder}/src/app",
         "C:\\Program Files\\SDCC\\include"
     ],
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",

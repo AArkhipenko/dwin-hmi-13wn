@@ -39,6 +39,7 @@ OBJDIR   = build/obj
 BINDIR   = build/dist
 
 SRCS = \
+	scr/app.c \
     src/main.c \
 	lib/uart/uart.c \
 	lib/sys/sys.c \
@@ -48,6 +49,7 @@ SRCS = \
 
 ASMS = startup/startup_T5L.s
 RELS = \
+	$(OBJDIR)/app.rel \
 	$(OBJDIR)/main.rel \
 	$(OBJDIR)/startup_T5L.rel \
 	$(OBJDIR)/uart.rel \
@@ -67,6 +69,10 @@ BIN      = $(BINDIR)/T5L51.bin
 MAP      = $(BINDIR)/$(TARGET).map
 
 all: $(BIN)
+
+$(OBJDIR)/app.rel: src/app.c
+	@mkdir -p $(OBJDIR)
+	$(SDCC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)/main.rel: src/main.c
 	@mkdir -p $(OBJDIR)
